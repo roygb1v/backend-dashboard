@@ -2,6 +2,8 @@
 
 2. You can play around with the Test Product Id by dragging and dropping the images. You can delete the image by clicking the red button. These images are non-persistent so you can refresh the page and get back the deleted images.
 
+<a href="https://imgflip.com/gif/3f7k3b"><img src="https://i.imgflip.com/3f7k3b.gif" title="GIF"/></a>
+
 3. You can upload an image with the product id and product name. This will be saved to the database.
 
 4. All images uploaded are in pending status. You can view them by clicking the status button. Please wait for 1-2 seconds while the database fetches the images.
