@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>jQuery UI Sortable - Default functionality</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="javascripts/index.js"></script>
+  </head>
+  <body>
+    <div id="drop-down-box">
+        <label for="status-select">Check Status:</label>
+
+        <select name="status" id="status-select">
+            <option value="">--Please choose an option--</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
+        </select>
+    </div>
+    <form
+      id="myform"
+      action="/upload"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <h2>Form Submission</h2>
+      <div class="form-upload">
+        <input
+          type="number"
+          name="pid"
+          id="pid"
+          placeholder="Enter Product ID"
+        />
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Enter Product Name"
+        />
+
+        <input
+          type="file"
+          id="fileinput"
+          name="photo"
+          accept="image/png, image/jpeg"
+        />
+      </div>
+      <div class="form-upload">
+        <input class="upload-btn" type="button" value="upload" />
+      </div>
+    </form>
+
+    <div class="main-container">
+        <h2>Test Product Id</h2>
+        <ul id="sortable">
+            <li>
+              <p class="x-close">x</p>
+              <div>
+                <img src="images/prada.jpg" alt="Prada Image" />
+              </div>
+            </li>
+            <li>
+              <p class="x-close">x</p>
+              <div>
+                <img src="images/prada_back.jpg" alt="Prada Back Image" />
+              </div>
+            </li>
+            <li>
+              <p class="x-close">x</p>
+              <div>
+                <img src="images/prada_inside.jpg" alt="Prada Inside Image" />
+              </div>
+            </li>
+            <li>
+              <p class="x-close">x</p>
+              <div>
+                <img src="images/prada_logo.jpg" alt="Prada Logo Image" />
+              </div>
+            </li>
+          </ul>
+          <div class="main-container pending-container">
+              <input class="pending-btn" id="accept-btn" name="accept-btn" type="button" value="accept" disabled>
+              <div>
+                  <input class="pending-btn" id="reject-btn" name="reject-btn" type="button" value="reject" disabled>
+                  <select name="status" id="rejection-select" disabled>
+                      <option value="">--Please choose an option--</option>
+                      <option value="blurry">Pictures are blurry</option>
+                      <option value="missing">Missing pictures</option>
+                      <option value="inappropriate">Inappropriate</option>
+                  </select>
+              </div>
+          </div>
+    </div>
+  </body>
+</html>
