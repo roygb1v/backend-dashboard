@@ -14,6 +14,11 @@ $(function() {
     }
     return hsh;
   }
+  function clearUploadFormFields() {
+    $("#pid").val("");
+    $("#name").val("");
+    $("#fileinput").val("");
+  }
 
   function clearScreen() {
     const currentDisplay = document.querySelectorAll(".main-container");
@@ -56,6 +61,12 @@ $(function() {
     }
   }
 
+  function disableBtns() {
+    $("#accept-btn").attr("disabled", true);
+    $("#reject-btn").attr("disabled", true);
+    $("#rejection-select").attr("disabled", true);
+  }
+
   function createPendingBtn() {
     let divOne = document.createElement('div');
     let divTwo = document.createElement('div');
@@ -67,6 +78,7 @@ $(function() {
     $(acceptInputBtn).on('click', function(e) {
       e.preventDefault();
       const id = $(this).parent().parent().find('h2').html();
+      disableBtns();
       const xhr = new XMLHttpRequest();
       xhr.responseType = 'json';
       xhr.open('POST', `/products/approved/${id}`, true);
@@ -82,6 +94,10 @@ $(function() {
       e.preventDefault();
       const currentOption = $( "#rejection-select option:selected" ).text();
       console.log(currentOption);
+      if (currentOption === "--Please choose an option--") {
+        alert('Please select an option!');
+        return;
+      }
       const id = $(this).parent().parent().parent().find('h2').html();
       const xhr = new XMLHttpRequest();
       xhr.responseType = 'json';
@@ -174,9 +190,7 @@ $(function() {
 
     xhr.onload= function() {
       console.log(this.response.image.data, this.response);
-      $("#pid").val("");
-      $("#name").val("");
-      $("#fileinput").val("");
+      clearUploadFormFields();
     }
   });
 
@@ -192,5 +206,4 @@ $(function() {
       sendStatusRequest('rejected');
     }
   });
-})
-
+});

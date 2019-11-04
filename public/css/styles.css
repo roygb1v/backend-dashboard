@@ -68,7 +68,7 @@ ul {
   position: relative;
   left: 2%;
   background-color: beige;
-  width: 450px;
+  width: 420px;
   margin-top: 100px;
   border: 1px dashed gray;
 }
@@ -96,8 +96,8 @@ div p {
 
 #drop-down-box {
   position: absolute;
-  top: 7%;
-  left: 45%;
+  top: 8%;
+  left: 55%;
 }
 
 div h2 {
