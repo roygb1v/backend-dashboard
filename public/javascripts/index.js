@@ -5,11 +5,12 @@ $(function() {
     let hsh = {};
     for (let i = 0; i < productArray.length; i += 1) {
       let currentObject = productArray[i];
+      let reason = currentObject.reason || "";
 
       if (hsh[currentObject.pId]) {
-        hsh[currentObject.pId].push({pId: currentObject.pId, imageBuffer: currentObject.image})
+        hsh[currentObject.pId].push({pId: currentObject.pId, imageBuffer: currentObject.image, reason: reason})
       } else {
-        hsh[currentObject.pId] = [{pId: currentObject.pId, imageBuffer: currentObject.image}];
+        hsh[currentObject.pId] = [{pId: currentObject.pId, imageBuffer: currentObject.image, reason: reason}];
       }
     }
     return hsh;
@@ -34,6 +35,13 @@ $(function() {
       let div = document.createElement('div');
       let ul = document.createElement('ul');
       let h2 = document.createElement('h2');
+
+      if (hsh[obj][0].reason.trim() !== "") {
+        let p = document.createElement('p');
+        p.textContent = `Reason: ${hsh[obj][0].reason}`;
+        div.append(p);
+      }
+      
       $(ul).attr('id', 'sortable');
       let pId = hsh[obj][0].pId;
       h2.textContent = pId;
@@ -160,7 +168,7 @@ $(function() {
     xhr.send();
 
     xhr.onload = function() {
-      //   console.log(this.response);
+      console.log(this.response.products);
       let hsh = generateProductHash(this.response.products);
       createProductList(hsh);
     }
@@ -175,6 +183,11 @@ $(function() {
 
     // Pass this off to database write or cache it somewhere
   });
+
+  $('.x-close').on('click', function(e) {
+    e.preventDefault();
+    $(this).parent().remove();
+  })
 
   $('.upload-btn').on('click', function(e) {
     e.preventDefault();

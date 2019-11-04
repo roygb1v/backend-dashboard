@@ -1,6 +1,8 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: 'Raleway', sans-serif;
+  box-sizing: border-box;
 }
 
 .container {
@@ -83,10 +85,9 @@ div p {
 
 .x-close {
   position: relative;
-  top: 22px;
-  left: 80%;
+  top: 10px;
+  float: right;
   color: darkred;
-  width: 10px;
 }
 
 .x-close:hover {
@@ -105,10 +106,6 @@ div h2 {
   left: 2%;
 }
 
-.pending-btn {
-
-}
-
 ul, .main-container {
   display: block;
 }
@@ -118,9 +115,14 @@ ul, .main-container {
   top: 100px;
 }
 
+.main-container p {
+  position: relative;
+  top: 140px;
+  left: 10%;
+}
+
 .pending-container {
   position: absolute;
   margin-top: 10px;
-
   left: 2%;
 }

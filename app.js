@@ -61,7 +61,7 @@ app.get("/products/rejected", async (req, res) => {
     if (!products) {
       res.send({});
     }
-    res.send({products});
+    res.send({products, reason: products.reason});
 
   } catch(e) {
     res.send({message: e});
