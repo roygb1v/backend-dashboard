@@ -33,8 +33,11 @@ $(function() {
     clearScreen();
     for (let obj in hsh) {
       let div = document.createElement('div');
+      let closeDiv = document.createElement('div');
+      $(closeDiv).attr('class', 'x-close');
       let ul = document.createElement('ul');
       let h2 = document.createElement('h2');
+      // closeDiv.textContent = &#x2716;
 
       if (hsh[obj][0].reason.trim() !== "") {
         let p = document.createElement('p');
@@ -49,6 +52,7 @@ $(function() {
       for (let i = 0; i < hsh[obj].length; i += 1) {
         let currentImageInUL = hsh[obj][i];
         let li = document.createElement('li');
+        li.append(closeDiv);
         let img = document.createElement('img');
 
         let buffer = currentImageInUL.imageBuffer.data;
@@ -58,6 +62,7 @@ $(function() {
         }, '');
         let base64String = btoa(STRING_CHAR);
         img.src = 'data:image/jpg;base64,' + base64String;
+
         li.append(img);
         ul.append(li);
       }
@@ -66,13 +71,16 @@ $(function() {
       div.append(ul);
       div.append(createPendingBtn());
       document.body.append(div);
+
+      $(ul).sortable();
+      $(ul).disableSelection();
     }
   }
 
   function disableBtns() {
-    $("#accept-btn").attr("disabled", true);
-    $("#reject-btn").attr("disabled", true);
-    $("#rejection-select").attr("disabled", true);
+    $(this).attr("disabled", true);
+    $(this).parent().find("#reject-btn").attr("disabled", true);
+    $(this).parent().find("#rejection-select").attr("disabled", true)
   }
 
   function createPendingBtn() {
@@ -86,7 +94,7 @@ $(function() {
     $(acceptInputBtn).on('click', function(e) {
       e.preventDefault();
       const id = $(this).parent().parent().find('h2').html();
-      disableBtns();
+      disableBtns.call(this); // call it in the context of this accept btn
       const xhr = new XMLHttpRequest();
       xhr.responseType = 'json';
       xhr.open('POST', `/products/approved/${id}`, true);
