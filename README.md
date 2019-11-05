@@ -1,6 +1,6 @@
 1. Please go to https://roy-backend-dashboard.herokuapp.com/
 
-2. You can play around with the Test Product Id by dragging and dropping the images. You can delete the image by clicking the red button. These images are non-persistent so you can refresh the page and get back the deleted images.
+2. You can play around with the Test Product Id by dragging and dropping the images. You can delete the image by clicking the red button. These images are persistent so you can refresh the page and get back the deleted images.
 
 <a href="https://imgflip.com/gif/3f7kgg"><img src="https://i.imgflip.com/3f7kgg.gif" title="drag and drop"/></a>
 
