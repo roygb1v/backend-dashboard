@@ -12,10 +12,10 @@
 
 5. You can accept or reject the product.
 
-6. If you reject the product, you must select an option, else an alert will pop up.
+6. If you reject the product, you must select an option, else an alert will pop up. For rejected products, there is a reason provided.
+
+<a href="https://imgflip.com/gif/3facvo"><img src="https://i.imgflip.com/3facvo.gif" title="made at imgflip.com"/></a>
 
 7. You can view the approved or rejected products by clicking on the status bar on the right.
 
 <a href="https://imgflip.com/gif/3f7l9k"><img src="https://i.imgflip.com/3f7l9k.gif" title="product status"/></a>
-
-8. For rejected products, there is a reason provided.
