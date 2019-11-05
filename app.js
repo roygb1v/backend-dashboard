@@ -69,9 +69,10 @@ app.get("/products/rejected", async (req, res) => {
 });
 
 app.post("/products/rejected/:id", async (req, res) => {
+  console.log('this is the post request for rejection', req.body);
   try {
     const pId = req.params.id;
-    await Product.updateOne({pId}, {status: "rejected", reason: "Pictures are blurry"});
+    await Product.updateOne({pId}, {status: "rejected", reason: "Inappropriate"});
     res.send({message: 'Product has been successfully updated to rejected status'});
   } catch (e) {
     res.send({error: e});
@@ -79,6 +80,7 @@ app.post("/products/rejected/:id", async (req, res) => {
 });
 
 app.post("/products/approved/:id", async (req, res) => {
+  console.log(req.body);
   try {
     const pId = req.params.id;
     await Product.updateOne({pId}, {status: "approved"});
@@ -88,23 +90,13 @@ app.post("/products/approved/:id", async (req, res) => {
   }
 });
 
-app.post("/products/rejected/:id", async (req, res) => {
-  // const pId = req.params.id;
-  // console.log('This is the xhr request body for rejected products', req.body);
-  // await Product.updateOne({pId}, {status: "approved"});
-  // res.send({message: 'Product has been updated'});
-  // await Product.updateOne({pId})
-  res.send()
-});
-
 app.post("/upload", upload.single("photo"), async (req, res) => {
-  console.log('req.file', req.file);
-  console.log('name: ', req.body.name);
+  // console.log('req.file', req.file);
+  // console.log('name: ', req.body.name);
 
   const product = new Product({
     pId: req.body.pid,
     name: req.body.name,
-    // status: "rejected",
     image: req.file.buffer
   });
 

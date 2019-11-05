@@ -4,7 +4,7 @@
 
 <a href="https://imgflip.com/gif/3f7kgg"><img src="https://i.imgflip.com/3f7kgg.gif" title="drag and drop"/></a>
 
-3. You can upload an image with the product id and product name. This will be saved to the database.
+3. You can upload an image with the product id and product name. This will be saved to the database. The image MUST be of jpg format.
 
 <a href="https://imgflip.com/gif/3f7l2t"><img src="https://i.imgflip.com/3f7l2t.gif" title="upload photo"/></a>
 
@@ -19,6 +19,3 @@
 <a href="https://imgflip.com/gif/3f7l9k"><img src="https://i.imgflip.com/3f7l9k.gif" title="product status"/></a>
 
 8. For rejected products, there is a reason provided.
-
-9. If you accidentally accepted/rejected the product during pending status, you can change the status by clicking the accept/reject button.
-

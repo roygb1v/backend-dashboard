@@ -106,7 +106,6 @@ $(function() {
     });
 
     $(rejectInputBtn).on('click', function(e) {
-
       e.preventDefault();
       const currentOption = $( "#rejection-select option:selected" ).text();
       console.log(currentOption);
@@ -117,8 +116,10 @@ $(function() {
       const id = $(this).parent().parent().parent().find('h2').html();
       const xhr = new XMLHttpRequest();
       xhr.responseType = 'json';
+
       xhr.open('POST', `/products/rejected/${id}`, true);
-      xhr.send({reason: currentOption});
+      let formData = new FormData(document.getElementById('myform'));
+      xhr.send(formData);
 
       xhr.onload = function() {
         console.log(this.response);
